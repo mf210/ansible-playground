@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  ansible:
+    build: ./ansible-dockerfile
+    command: tail -F /dev/null
+    container_name: ansible
+    hostname: ansible
+    volumes:
+      - ./ansible:/ansible
