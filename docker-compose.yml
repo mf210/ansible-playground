@@ -8,3 +8,27 @@ services:
     hostname: ansible
     volumes:
       - ./ansible:/ansible
+      - ansible-home:/home/ansible
+      - ansible-root:/root
+    networks:
+      - ansible-playground-net
+  
+  server_1:
+    build: ./servers-dockerfile
+    container_name: server_1
+    hostname: server_1
+    volumes:
+      - server_1-home:/home/server_1
+      - server_1-root:/root
+    networks:
+      - ansible-playground-net
+
+volumes:
+  ansible-home:
+  ansible-root:
+  server_1-home:
+  server_1-root:
+
+networks:
+  ansible-playground-net:
+    name: ansible-playground-net
