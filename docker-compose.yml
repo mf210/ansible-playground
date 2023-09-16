@@ -18,16 +18,27 @@ services:
     container_name: server_1
     hostname: server_1
     volumes:
-      - server_1-home:/home/server_1
+      - matt-home:/home/matt
       - server_1-root:/root
     networks:
       - ansible-playground-net
 
+  server_2:
+    build: ./servers-dockerfile
+    container_name: server_2
+    hostname: server_2
+    volumes:
+      - matt-home:/home/matt
+      - server_2-root:/root
+    networks:
+      - ansible-playground-net
+      
 volumes:
   ansible-home:
   ansible-root:
-  server_1-home:
+  matt-home:
   server_1-root:
+  server_2-root:
 
 networks:
   ansible-playground-net:
