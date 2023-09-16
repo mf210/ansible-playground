@@ -1,1 +1,8 @@
-ansible -i,server_1,server_2 all -m ping
+# Check if both servers are reachable.
+--> ansible -i,server_1,server_2 all -m ping
+
+# Check the uptime of both servers.
+--> ansible -i server_1,server_2 all -a "uptime"
+
+# Create a file with a fun message on both servers.
+--> ansible -i server_1,server_2 all -m copy -a "content='Have fun with Ansible!' dest=/tmp/fun.txt"
