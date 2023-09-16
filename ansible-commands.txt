@@ -1,0 +1,1 @@
+ansible -i,server_1,server_2 all -m ping
